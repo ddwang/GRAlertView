@@ -31,8 +31,8 @@ GRAlertView is a subclass from UIAlertView with color customization and CoreGrap
 ## Usage
 
 - add&import `QuartzCore` framework to your project
-- add `GRButtons.h` and `GRButons.m` to your project
-- import `GRButtons.h`
+- add `GRAlertView.h` and `GRAlertView.m` to your project
+- import `GRAlertView.h`
 
 ## Examples
 
