@@ -247,13 +247,15 @@ typedef enum {
     CGGradientRef glossGradient;
     CGFloat locations2[2] = { 0.0, 1.0 };
     CGFloat components2[8] = { 1.0, 1.0, 1.0, 0.65,
-		1.0, 1.0, 1.0, 0.06 }; 
-    glossGradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(), components2, locations2, 2);
+		1.0, 1.0, 1.0, 0.06 };
+	CGColorSpaceRef glossGradientCS = CGColorSpaceCreateDeviceRGB();
+    glossGradient = CGGradientCreateWithColorComponents(glossGradientCS, components2, locations2, 2);
 	CGPoint topCenter = CGPointMake(CGRectGetMidX(activeBounds), 0.0f);
     CGPoint midCenter = CGPointMake(CGRectGetMidX(activeBounds), 35.0f);
     CGContextDrawLinearGradient(context, glossGradient, topCenter, midCenter, 0);
     CGGradientRelease(glossGradient);
-    
+    CGColorSpaceRelease(glossGradientCS);
+
     CGContextRestoreGState(context);
 	CGContextAddPath(context, path);
 	CGContextSetLineWidth(context, _animation==GRAlertAnimationBorder?4.0f:2.0f);
